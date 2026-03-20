@@ -9,7 +9,13 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   background-color: #fafafa;
   color: #1a1a2e;
-  overflow-x: hidden;
+  /*
+   * BUG FIX: overflow-x:hidden crea un BFC (Block Formatting Context) que
+   * rompe el hit-testing de pointer events en los elementos cerca del borde
+   * derecho del viewport. overflow:clip hace el mismo recorte visual pero
+   * NO crea un scroll container ni afecta el hit-testing.
+   */
+  overflow-x: clip;
 }
 
 /* ─── Custom Scrollbar ─────────────────────────────── */
@@ -40,7 +46,7 @@ body {
   font-size: 0.78rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.68);
+  color: rgba(255,255,255,0.78);
   transition: color 0.3s;
 }
 .nav-link::after {
@@ -93,10 +99,18 @@ body {
       rgba(4,9,20,0.60) 0%,
       rgba(4,9,20,0.78) 55%,
       rgba(4,9,20,0.97) 100%),
-    url('/Users/ferminlasarte/Documents/GitHub/portfolio_beltran/background.jpeg');
+    url('../assets/background.jpeg');
   background-size: cover;
   background-position: center 30%;
-  background-attachment: fixed;
+  /*
+   * FIX iOS: background-attachment:fixed es ignorado en iOS Safari
+   * y causa que la imagen desaparezca o se congele. Se usa scroll por
+   * defecto y fixed solo en dispositivos con cursor real (desktop).
+   */
+  background-attachment: scroll;
+}
+@media (min-width: 1024px) and (hover: hover) {
+  .hero-bg { background-attachment: fixed; }
 }
 
 /* ─── Buttons ──────────────────────────────────────── */
@@ -152,16 +166,27 @@ body {
 }
 
 /* ─── Process steps ────────────────────────────────── */
-.step-card {
+/*
+ * BUG FIX: Using #proceso .step-card (specificity 0,1,1,0) instead of
+ * .step-card (0,0,1,0) so the hover transform and box-shadow override
+ * .reveal.visible (0,0,2,0) which was winning the cascade and suppressing
+ * the hover translateY and transition definitions.
+ * We also add opacity to the transition so the IntersectionObserver reveal
+ * still animates correctly at 0.75s while hover transitions run at 0.35s.
+ */
+#proceso .step-card {
+  position: relative;
   border-bottom: 2px solid transparent;
   transition: border-color 0.35s,
               transform 0.35s cubic-bezier(.25,.46,.45,.94),
-              box-shadow 0.35s;
+              box-shadow 0.35s,
+              opacity 0.75s cubic-bezier(.25,.46,.45,.94);
 }
-.step-card:hover {
+#proceso .step-card:hover {
   border-color: #2563eb;
   transform: translateY(-6px);
-  box-shadow: 0 18px 44px rgba(0,0,0,0.10);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.22);
+  z-index: 2;
 }
 .step-number {
   font-family: 'Playfair Display', serif;
@@ -202,7 +227,7 @@ body {
   transition: padding-left 0.3s ease;
 }
 .contact-item:hover { padding-left: 0.5rem; }
-.contact-item a { color: rgba(255,255,255,0.60); transition: color 0.25s; }
+.contact-item a { color: rgba(255,255,255,0.88); transition: color 0.25s; }
 .contact-item a:hover { color: #93c5fd; }
 .contact-icon {
   width: 36px; height: 36px;
@@ -216,8 +241,8 @@ body {
 .social-link {
   width: 40px; height: 40px;
   display: flex; align-items: center; justify-content: center;
-  border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.20);
+  color: rgba(255,255,255,0.68);
   transition: border-color 0.3s, color 0.3s, background 0.3s,
               transform 0.3s cubic-bezier(.25,.46,.45,.94);
 }
@@ -234,6 +259,9 @@ body {
   opacity: 0;
   pointer-events: none;
   transform: translateY(-8px);
+  /* Safety: never overflow viewport height on very short screens */
+  max-height: 100dvh;
+  overflow-y: auto;
   transition: opacity 0.35s ease,
               visibility 0.35s ease,
               transform 0.35s cubic-bezier(.25,.46,.45,.94);
@@ -246,29 +274,38 @@ body {
 }
 
 /* ─── Scroll animations ────────────────────────────── */
+/*
+ * BUG FIX: pointer-events:none while the element is invisible (pre-reveal)
+ * prevents intermittent hover detection on elements that are still
+ * animating in (opacity:0, mid-translateY). Once .visible is added the
+ * element is fully interactive again.
+ */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
+  pointer-events: none;
   transition: opacity 0.75s cubic-bezier(.25,.46,.45,.94),
               transform 0.75s cubic-bezier(.25,.46,.45,.94);
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 
 .reveal-left {
   opacity: 0;
   transform: translateX(-30px);
+  pointer-events: none;
   transition: opacity 0.75s cubic-bezier(.25,.46,.45,.94),
               transform 0.75s cubic-bezier(.25,.46,.45,.94);
 }
-.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); pointer-events: auto; }
 
 .reveal-right {
   opacity: 0;
   transform: translateX(30px);
+  pointer-events: none;
   transition: opacity 0.75s cubic-bezier(.25,.46,.45,.94),
               transform 0.75s cubic-bezier(.25,.46,.45,.94);
 }
-.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.reveal-right.visible { opacity: 1; transform: translateX(0); pointer-events: auto; }
 
 /* ─── Divider ──────────────────────────────────────── */
 .accent-divider {
@@ -403,17 +440,104 @@ body {
 }
 
 /* ─── FAB button ─────────────────────────────────────── */
+/*
+ * ROOT BUG FIX: #chat-widget es un div fixed de ~380px × ~634px
+ * posicionado en la esquina inferior derecha con z-index:50.
+ * Aunque el panel de chat tenga pointer-events:none cuando está
+ * cerrado, el DIV PADRE intercept todos los eventos del área que
+ * ocupa, impidiendo hacer hover/click en las cards de la derecha
+ * (card 05 de Nuestro Proceso, Casa Huidobro, columna Prensa).
+ *
+ * Fix: pointer-events:none en el contenedor. Los hijos (#chat-fab
+ * y #chat-window.chat-open) declaran pointer-events:auto
+ * explícitamente para seguir siendo interactivos.
+ */
+#chat-widget {
+  pointer-events: none;
+}
 #chat-fab {
+  pointer-events: auto;
   transition: transform 0.25s cubic-bezier(.25,.46,.45,.94),
               box-shadow 0.25s;
 }
 #chat-fab:hover  { transform: scale(1.10); }
 #chat-fab:active { transform: scale(0.94); }
+/* El panel abierto también necesita pointer-events:auto */
+#chat-window.chat-open {
+  pointer-events: auto;
+}
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE — Mobile first overrides
+   Breakpoints mirror Tailwind: sm=640px, md=768px
+══════════════════════════════════════════════════════ */
+
+/*
+ * Chat widget — mobile (< 640px)
+ * ─────────────────────────────────────────────────────
+ * Two critical fixes:
+ *
+ * 1. WIDTH  → full viewport minus 2×1rem margins.
+ *
+ * 2. HEIGHT → 100dvh (dynamic viewport height) minus the
+ *    space the FAB stack occupies below the window:
+ *      1rem bottom widget margin
+ *    + 58px FAB height
+ *    + 1rem gap between window and FAB   (gap-4)
+ *    + 1rem top safety margin
+ *    = ~106px
+ *    dvh shrinks automatically when the virtual keyboard
+ *    opens, so the window stays fully visible.
+ * ─────────────────────────────────────────────────────
+ */
+@media (max-width: 639px) {
+  #chat-widget {
+    bottom: 1rem;
+    right:  1rem;
+    /* Allow window to stretch edge-to-edge */
+    left:   1rem;
+    align-items: stretch;
+  }
+
+  #chat-window {
+    width: 100%;       /* fills parent which spans left:1rem → right:1rem */
+    max-width: none;
+    height: calc(100dvh - 106px);
+    max-height: 560px;
+    /* Remove bottom-right origin — animate from bottom center on mobile */
+    transform-origin: bottom center;
+  }
+
+  /* FAB stays anchored to the right */
+  #chat-fab {
+    align-self: flex-end;
+  }
+}
 
 /* ─── Project cards ────────────────────────────────── */
+/* Root element is now an <a> — display:block prevents inline gaps */
+a.project-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  /*
+   * isolation:isolate gives each card its own stacking context so GPU
+   * compositing layers don't bleed across siblings and cause intermittent
+   * hover hit-testing misses reported by users.
+   */
+  isolation: isolate;
+}
+a.project-card:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 4px;
+}
 .project-card { cursor: pointer; }
+/* Ensure hovered card floats above siblings */
+.project-card:hover { z-index: 2; }
 .project-card .card-line {
   width: 32px;
+  flex-shrink: 0;
   transition: width 0.45s ease;
 }
 .project-card:hover .card-line { width: 60px; }
@@ -422,37 +546,85 @@ body {
 }
 .project-card:hover .card-img { transform: scale(1.06); }
 
+/* CTA label — slides in from left on card hover */
+.project-card-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: #93c5fd;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.38s ease, transform 0.38s ease;
+}
+.project-card:hover .project-card-cta {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* ─── Press / Events scroll strip ─────────────────── */
+/*
+ * Shadow-clipping fix
+ * ─────────────────────────────────────────────────────
+ * overflow-x:auto creates a BFC that clips any box-shadow extending
+ * outside the element's padding edge.
+ * Solution: add generous padding (top + bottom) so the shadow of
+ * translateY(-6px) cards + their spread has room to render without
+ * hitting the clip boundary.
+ *
+ * Required clearance:
+ *   top    → 12px  (translateY offset)
+ *   bottom → 24px  (12px shadow blur + 6px translateY + margin)
+ * ─────────────────────────────────────────────────────
+ */
 .media-strip {
   display: flex;
   gap: 1rem;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  /*
+   * BUG FIX: Changed from "mandatory" to "proximity" so the snap is less
+   * aggressive during mouse-drag. "mandatory" was fighting the drag momentum
+   * and snapping the strip back mid-drag, making free-scrolling very hard.
+   */
+  scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 0.5rem;
-  scrollbar-width: none;        /* Firefox */
+  padding: 12px 4px 28px 4px;   /* top/bottom prevent shadow guillotine */
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;             /* prevent text selection while dragging */
 }
-.media-strip::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+.media-strip:active { cursor: grabbing; }
+.media-strip::-webkit-scrollbar { display: none; }
 
+/* Premium dark glass card */
 .media-card {
   scroll-snap-align: start;
   flex-shrink: 0;
-  min-width: 220px;
-  background: #fff;
-  border-left: 2px solid #2563eb;
-  padding: 1.25rem 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 248px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.042);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-left: 2px solid rgba(37, 99, 235, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 1.5rem;
+  will-change: transform;        /* promote to GPU layer for stable hit-testing */
+  transition:
+    transform    0.38s cubic-bezier(.25,.46,.45,.94),
+    box-shadow   0.38s ease,
+    border-color 0.38s ease;
 }
 .media-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.10);
-}
-.media-card-dark {
-  background: rgba(255,255,255,0.04);
-  border-left: 2px solid #1d4ed8;
-}
-.media-card-dark:hover {
-  box-shadow: 0 12px 32px rgba(29,78,216,0.18);
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(59, 130, 246, 0.20);
+  border-left-color: #60a5fa;
 }
 
 /* ─── Gold CTA button (Libro) ──────────────────────── */
@@ -512,7 +684,8 @@ body {
   border-radius: 50%;
   background: linear-gradient(135deg, #f59e0b, #d97706);
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 6px 20px rgba(245,158,11,0.40);
+  box-shadow: 0 6px 20px rgba(245,158,11,0.50);
+  z-index: 3; /* float above the book cover photo */
 }
 .book-floor {
   position: absolute;

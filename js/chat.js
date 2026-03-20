@@ -3,7 +3,7 @@
  * Vanilla JS · Gemini AI via FastAPI
  */
 
-const CHAT_API_URL = 'http://localhost:8000/api/chat';
+const CHAT_API_URL = 'https://portfolio-beltran.onrender.com';
 
 // Conversation history kept on the client; sent with each request so the
 // model has context. Capped at 20 messages (10 exchanges) to control tokens.
@@ -232,6 +232,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // Enable/disable send button reactively
   chatInput.addEventListener('input', () => {
     sendBtn.disabled = chatInput.value.trim() === '' || isSending;
+  });
+
+  /*
+   * Mobile keyboard fix
+   * ───────────────────────────────────────────────────
+   * When the virtual keyboard opens on iOS/Android it
+   * shrinks the visual viewport. Combined with the dvh-
+   * based window height in CSS, the window resizes
+   * automatically. We also scroll messages to the bottom
+   * so the last message stays visible above the input.
+   *
+   * A 350ms delay matches the average keyboard animation
+   * duration on both platforms.
+   * ───────────────────────────────────────────────────
+   */
+  chatInput.addEventListener('focus', () => {
+    if (window.innerWidth < 640) {
+      setTimeout(() => {
+        scrollToBottom();
+        // Scroll the input wrapper into view inside the fixed panel
+        chatInput.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 350);
+    }
   });
 
   // Render quick reply chips

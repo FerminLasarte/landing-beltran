@@ -138,3 +138,59 @@ var counterObserver = new IntersectionObserver(function (entries) {
 document.querySelectorAll('.counter').forEach(function (el) {
   counterObserver.observe(el);
 });
+
+
+/* ─────────────────────────────────────────────────────
+   6. DRAG-TO-SCROLL — mouse drag on .media-strip
+   ─────────────────────────────────────────────────────
+   On desktop there is no native horizontal swipe, so the
+   strips were very hard to scroll. This adds click-and-drag
+   support: press, move, release — just like a touch swipe.
+   A small drag-threshold (5 px) prevents a drag from also
+   firing a click on child links.
+─────────────────────────────────────────────────────── */
+
+document.querySelectorAll('.media-strip').forEach(function (strip) {
+  var isDragging  = false;
+  var startX      = 0;
+  var scrollStart = 0;
+  var totalDrag   = 0;
+
+  strip.addEventListener('mousedown', function (e) {
+    isDragging  = true;
+    /*
+     * BUG FIX: usar e.clientX (viewport-relative) en vez de
+     * e.pageX - strip.offsetLeft, que falla cuando el strip está
+     * dentro de contenedores con padding/transform o cerca del
+     * borde derecho del viewport.
+     */
+    startX      = e.clientX;
+    scrollStart = strip.scrollLeft;
+    totalDrag   = 0;
+    strip.style.cursor = 'grabbing';
+    /* Prevent text selection while dragging */
+    e.preventDefault();
+  });
+
+  window.addEventListener('mouseup', function () {
+    if (!isDragging) return;
+    isDragging         = false;
+    strip.style.cursor = 'grab';
+  });
+
+  strip.addEventListener('mousemove', function (e) {
+    if (!isDragging) return;
+    var walk = e.clientX - startX;
+    totalDrag = Math.abs(walk);
+    strip.scrollLeft = scrollStart - walk;
+  });
+
+  /*
+   * If the user only moved a few pixels (≤ 5) treat it as a click
+   * so links inside cards still work. For a real drag we cancel the
+   * click propagation to avoid accidental navigation.
+   */
+  strip.addEventListener('click', function (e) {
+    if (totalDrag > 5) e.stopPropagation();
+  }, true);
+});
