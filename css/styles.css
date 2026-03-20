@@ -93,7 +93,7 @@ body {
       rgba(4,9,20,0.60) 0%,
       rgba(4,9,20,0.78) 55%,
       rgba(4,9,20,0.97) 100%),
-    url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80');
+    url('/Users/ferminlasarte/Documents/GitHub/portfolio_beltran/background.jpeg');
   background-size: cover;
   background-position: center 30%;
   background-attachment: fixed;
