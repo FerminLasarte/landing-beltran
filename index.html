@@ -70,10 +70,12 @@
     <div class="flex items-center gap-4 md:gap-5">
 
       <!-- Desktop nav links (hidden on mobile) -->
-      <div class="hidden md:flex items-center gap-8">
+      <div class="hidden md:flex items-center gap-6">
         <a href="#estadisticas" class="nav-link" data-scroll data-i18n="nav.stats">Estadísticas</a>
         <a href="#sobre-mi"     class="nav-link" data-scroll data-i18n="nav.about">Sobre Mí</a>
         <a href="#proceso"      class="nav-link" data-scroll data-i18n="nav.process">El Proceso</a>
+        <a href="#proyectos"    class="nav-link" data-scroll>Proyectos</a>
+        <a href="#libro"        class="nav-link" data-scroll>Mi Libro</a>
         <a href="#contacto"     class="nav-link" data-scroll data-i18n="nav.contact">Contacto</a>
       </div>
 
@@ -100,6 +102,8 @@
       <a href="#estadisticas" class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.stats">Estadísticas</a>
       <a href="#sobre-mi"     class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.about">Sobre Mí</a>
       <a href="#proceso"      class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.process">El Proceso</a>
+      <a href="#proyectos"    class="nav-link block py-4" data-scroll data-mobile>Proyectos</a>
+      <a href="#libro"        class="nav-link block py-4" data-scroll data-mobile>Mi Libro</a>
       <a href="#contacto"     class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.contact">Contacto</a>
     </div>
   </div>
@@ -383,6 +387,264 @@
 
 
   <!-- ════════════════════════════════════════════════════
+       PROYECTOS
+  ════════════════════════════════════════════════════ -->
+  <section id="proyectos" class="bg-ink-900 py-28 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <p class="section-label mb-4" style="color:#3b82f6;">Portafolio</p>
+        <h2 class="font-display text-white text-3xl md:text-4xl font-semibold">
+          Desarrollos que definen el futuro
+        </h2>
+        <div class="accent-line mx-auto mt-5"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Card 1: Brigos Palermo -->
+        <div class="project-card reveal" style="transition-delay:0.05s;">
+          <div class="relative overflow-hidden" style="aspect-ratio:3/4;">
+            <img
+              src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80&fit=crop"
+              alt="Brigos Palermo"
+              class="card-img w-full h-full object-cover"
+            />
+            <div class="absolute inset-0"
+                 style="background:linear-gradient(to top,rgba(4,9,15,0.96) 0%,rgba(4,9,15,0.50) 48%,rgba(4,9,15,0.10) 100%);"></div>
+            <!-- Badge -->
+            <div class="absolute top-5 left-5">
+              <span class="inline-flex items-center gap-2 px-3 py-1.5"
+                    style="background:rgba(37,99,235,0.18);border:1px solid rgba(59,130,246,0.38);backdrop-filter:blur(10px);">
+                <span class="animate-pulse inline-block rounded-full"
+                      style="width:6px;height:6px;background:#60a5fa;flex-shrink:0;"></span>
+                <span style="font-size:0.58rem;letter-spacing:0.22em;color:#93c5fd;font-weight:600;text-transform:uppercase;">En Construcción</span>
+              </span>
+            </div>
+            <!-- Info -->
+            <div class="absolute bottom-0 left-0 right-0 p-7">
+              <p style="font-size:0.62rem;letter-spacing:0.22em;color:#60a5fa;text-transform:uppercase;font-weight:500;margin-bottom:0.5rem;">Buenos Aires · Palermo</p>
+              <h3 class="font-display text-white text-2xl md:text-3xl font-semibold leading-tight">
+                Brigos<br/>Palermo
+              </h3>
+              <div class="card-line mt-4" style="height:1px;background:linear-gradient(90deg,#3b82f6,#1e3a8a);"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Brigos Recoleta -->
+        <div class="project-card reveal" style="transition-delay:0.13s;">
+          <div class="relative overflow-hidden" style="aspect-ratio:3/4;">
+            <img
+              src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80&fit=crop"
+              alt="Brigos Recoleta"
+              class="card-img w-full h-full object-cover"
+            />
+            <div class="absolute inset-0"
+                 style="background:linear-gradient(to top,rgba(4,9,15,0.96) 0%,rgba(4,9,15,0.50) 48%,rgba(4,9,15,0.10) 100%);"></div>
+            <div class="absolute top-5 left-5">
+              <span class="inline-flex items-center gap-2 px-3 py-1.5"
+                    style="background:rgba(37,99,235,0.18);border:1px solid rgba(59,130,246,0.38);backdrop-filter:blur(10px);">
+                <span class="animate-pulse inline-block rounded-full"
+                      style="width:6px;height:6px;background:#60a5fa;flex-shrink:0;animation-delay:0.3s;"></span>
+                <span style="font-size:0.58rem;letter-spacing:0.22em;color:#93c5fd;font-weight:600;text-transform:uppercase;">En Construcción</span>
+              </span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-7">
+              <p style="font-size:0.62rem;letter-spacing:0.22em;color:#60a5fa;text-transform:uppercase;font-weight:500;margin-bottom:0.5rem;">Buenos Aires · Recoleta</p>
+              <h3 class="font-display text-white text-2xl md:text-3xl font-semibold leading-tight">
+                Brigos<br/>Recoleta
+              </h3>
+              <div class="card-line mt-4" style="height:1px;background:linear-gradient(90deg,#3b82f6,#1e3a8a);"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Casa Huidobro -->
+        <div class="project-card reveal" style="transition-delay:0.22s;">
+          <div class="relative overflow-hidden" style="aspect-ratio:3/4;">
+            <img
+              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80&fit=crop"
+              alt="Casa Huidobro"
+              class="card-img w-full h-full object-cover"
+            />
+            <div class="absolute inset-0"
+                 style="background:linear-gradient(to top,rgba(4,9,15,0.96) 0%,rgba(4,9,15,0.50) 48%,rgba(4,9,15,0.10) 100%);"></div>
+            <div class="absolute top-5 left-5">
+              <span class="inline-flex items-center gap-2 px-3 py-1.5"
+                    style="background:rgba(37,99,235,0.18);border:1px solid rgba(59,130,246,0.38);backdrop-filter:blur(10px);">
+                <span class="animate-pulse inline-block rounded-full"
+                      style="width:6px;height:6px;background:#60a5fa;flex-shrink:0;animation-delay:0.6s;"></span>
+                <span style="font-size:0.58rem;letter-spacing:0.22em;color:#93c5fd;font-weight:600;text-transform:uppercase;">En Construcción</span>
+              </span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-7">
+              <p style="font-size:0.62rem;letter-spacing:0.22em;color:#60a5fa;text-transform:uppercase;font-weight:500;margin-bottom:0.5rem;">Buenos Aires · Belgrano</p>
+              <h3 class="font-display text-white text-2xl md:text-3xl font-semibold leading-tight">
+                Casa<br/>Huidobro
+              </h3>
+              <div class="card-line mt-4" style="height:1px;background:linear-gradient(90deg,#3b82f6,#1e3a8a);"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════
+       PRENSA Y EVENTOS
+  ════════════════════════════════════════════════════ -->
+  <section id="prensa-eventos" class="bg-white py-28 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <p class="section-label mb-4">Visibilidad &amp; Presencia</p>
+        <h2 class="font-display text-slate-900 text-3xl md:text-4xl font-semibold">
+          Prensa y Eventos
+        </h2>
+        <div class="accent-line mx-auto mt-5"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+
+        <!-- COLUMNA EVENTOS -->
+        <div class="reveal-left">
+          <!-- Column header -->
+          <div class="flex items-center gap-4 mb-8">
+            <div class="feature-icon flex-shrink-0" style="width:44px;height:44px;">
+              <i class="fa-solid fa-calendar-star text-sm"></i>
+            </div>
+            <div>
+              <p class="section-label" style="color:#2563eb;">Eventos</p>
+              <h3 class="font-display text-slate-800 text-xl font-semibold leading-tight">
+                Presencia en el escenario
+              </h3>
+            </div>
+          </div>
+
+          <!-- Horizontal scroll strip -->
+          <div class="media-strip">
+
+            <div class="media-card">
+              <div class="flex items-start gap-3">
+                <span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;line-height:1;color:#e2e8f0;flex-shrink:0;">01</span>
+                <div>
+                  <p class="text-slate-800 font-semibold text-sm leading-snug mb-1">Summit 2025</p>
+                  <p class="text-slate-400 text-xs font-light leading-relaxed">Grupo Set — Conferencia de liderazgo y Real Estate.</p>
+                  <span class="inline-block mt-3 px-2 py-0.5 text-navy-500 text-xs font-medium"
+                        style="background:rgba(37,99,235,0.08);font-size:0.60rem;letter-spacing:0.12em;text-transform:uppercase;">2025</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="media-card">
+              <div class="flex items-start gap-3">
+                <span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;line-height:1;color:#e2e8f0;flex-shrink:0;">02</span>
+                <div>
+                  <p class="text-slate-800 font-semibold text-sm leading-snug mb-1">Expo Real Estate</p>
+                  <p class="text-slate-400 text-xs font-light leading-relaxed">+1.200 personas — el mayor evento inmobiliario del país.</p>
+                  <span class="inline-block mt-3 px-2 py-0.5 text-navy-500 text-xs font-medium"
+                        style="background:rgba(37,99,235,0.08);font-size:0.60rem;letter-spacing:0.12em;text-transform:uppercase;">+1.200 asistentes</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="media-card">
+              <div class="flex items-start gap-3">
+                <span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;line-height:1;color:#e2e8f0;flex-shrink:0;">03</span>
+                <div>
+                  <p class="text-slate-800 font-semibold text-sm leading-snug mb-1">FNS Forum</p>
+                  <p class="text-slate-400 text-xs font-light leading-relaxed">San Juan — Foro Nacional de Sustentabilidad e Inversión.</p>
+                  <span class="inline-block mt-3 px-2 py-0.5 text-navy-500 text-xs font-medium"
+                        style="background:rgba(37,99,235,0.08);font-size:0.60rem;letter-spacing:0.12em;text-transform:uppercase;">San Juan</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Scroll hint -->
+          <p class="text-slate-300 text-xs mt-4 flex items-center gap-2">
+            <i class="fa-solid fa-arrow-right-long"></i>
+            <span style="font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;">Deslizá para ver más</span>
+          </p>
+        </div>
+
+        <!-- COLUMNA PRENSA -->
+        <div class="reveal-right">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="feature-icon flex-shrink-0" style="width:44px;height:44px;">
+              <i class="fa-solid fa-newspaper text-sm"></i>
+            </div>
+            <div>
+              <p class="section-label" style="color:#2563eb;">Prensa</p>
+              <h3 class="font-display text-slate-800 text-xl font-semibold leading-tight">
+                Los medios que cuentan la historia
+              </h3>
+            </div>
+          </div>
+
+          <!-- Horizontal scroll strip -->
+          <div class="media-strip">
+
+            <div class="media-card" style="min-width:260px;">
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center"
+                     style="background:linear-gradient(135deg,#1a1a2e,#0f0f23);">
+                  <span class="font-display font-bold" style="color:#f59e0b;font-size:0.75rem;">F</span>
+                </div>
+                <div>
+                  <p class="text-slate-400 text-xs font-light uppercase tracking-widest mb-1"
+                     style="font-size:0.60rem;">Forbes Argentina</p>
+                  <p class="text-slate-800 font-semibold text-sm leading-snug">
+                    El fenómeno que impulsa la inversión inmobiliaria en CABA
+                  </p>
+                </div>
+              </div>
+              <div class="mt-4 pt-4" style="border-top:1px solid #f1f5f9;">
+                <a href="#" class="text-navy-500 text-xs font-medium hover:text-navy-600 transition-colors flex items-center gap-1.5">
+                  Leer nota <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="media-card" style="min-width:260px;">
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center"
+                     style="background:linear-gradient(135deg,#c00000,#8b0000);">
+                  <span class="font-display font-bold text-white" style="font-size:0.75rem;">i</span>
+                </div>
+                <div>
+                  <p class="text-slate-400 text-xs font-light uppercase tracking-widest mb-1"
+                     style="font-size:0.60rem;">Infobae</p>
+                  <p class="text-slate-800 font-semibold text-sm leading-snug">
+                    De las redes a la obra: cómo Briones revolucionó el Real Estate
+                  </p>
+                </div>
+              </div>
+              <div class="mt-4 pt-4" style="border-top:1px solid #f1f5f9;">
+                <a href="#" class="text-navy-500 text-xs font-medium hover:text-navy-600 transition-colors flex items-center gap-1.5">
+                  Leer nota <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="text-slate-300 text-xs mt-4 flex items-center gap-2">
+            <i class="fa-solid fa-arrow-right-long"></i>
+            <span style="font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;">Deslizá para ver más</span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════
        QUOTE
   ════════════════════════════════════════════════════ -->
   <section class="bg-ink-900 py-20 px-6 md:px-12 relative overflow-hidden">
@@ -396,6 +658,113 @@
       </p>
       <span class="accent-line mx-auto mb-5"></span>
       <p class="text-navy-400 text-sm tracking-widest uppercase" style="letter-spacing:0.2em;">Beltrán Briones</p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════
+       MI LIBRO
+  ════════════════════════════════════════════════════ -->
+  <section id="libro" class="py-28 px-6 md:px-12 relative overflow-hidden"
+           style="background:linear-gradient(135deg, #0c1a35 0%, #0f1f3d 40%, #04090f 100%);">
+
+    <!-- Subtle background texture lines -->
+    <div class="absolute inset-0 pointer-events-none" style="opacity:0.06;"
+         aria-hidden="true">
+      <div style="position:absolute;top:-40%;right:-10%;width:640px;height:640px;border-radius:50%;border:1px solid #3b82f6;"></div>
+      <div style="position:absolute;top:-20%;right:5%;width:440px;height:440px;border-radius:50%;border:1px solid #3b82f6;"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- LEFT: Text -->
+      <div class="reveal-left">
+
+        <p class="section-label mb-5" style="color:#f59e0b;letter-spacing:0.28em;">Best Seller</p>
+
+        <h2 class="font-display text-white text-4xl md:text-5xl font-semibold leading-tight mb-4">
+          El Método<br/>
+          <span style="background:linear-gradient(135deg,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+            Briones
+          </span>
+        </h2>
+
+        <p class="text-navy-300 text-sm font-light tracking-wide mb-5"
+           style="letter-spacing:0.08em;">
+          Cómo promocionar y vender cualquier cosa.
+        </p>
+
+        <span class="accent-line mb-8"
+              style="background:linear-gradient(90deg,#f59e0b,#d97706);"></span>
+
+        <p class="text-white/65 text-base font-light leading-relaxed max-w-md mt-6 mb-10">
+          El modelo definitivo para dueños de empresas y emprendedores que buscan crecer y convertir su posicionamiento en resultados concretos.
+        </p>
+
+        <!-- Stats row -->
+        <div class="flex gap-8 mb-10">
+          <div>
+            <span class="font-display text-3xl font-bold text-white">#1</span>
+            <p class="text-white/45 text-xs uppercase tracking-widest mt-0.5" style="font-size:0.60rem;">Ventas</p>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,0.10);"></div>
+          <div>
+            <span class="font-display text-3xl font-bold text-white">+5K</span>
+            <p class="text-white/45 text-xs uppercase tracking-widest mt-0.5" style="font-size:0.60rem;">Lectores</p>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,0.10);"></div>
+          <div>
+            <span class="font-display text-3xl font-bold text-white">4.9</span>
+            <p class="text-white/45 text-xs uppercase tracking-widest mt-0.5" style="font-size:0.60rem;">Calificación</p>
+          </div>
+        </div>
+
+        <a href="https://www.mercadolibre.com.ar" target="_blank" rel="noopener"
+           class="btn-gold">
+          <i class="fa-solid fa-bag-shopping"></i>
+          Disponible en Mercado Libre
+        </a>
+
+      </div>
+
+      <!-- RIGHT: Book mockup -->
+      <div class="reveal-right flex justify-center lg:justify-end">
+        <div class="book-mockup">
+
+          <!-- Spine -->
+          <div class="book-spine"></div>
+
+          <!-- Cover -->
+          <div class="book-cover">
+            <!-- Best Seller badge -->
+            <div class="book-badge">
+              <span style="font-family:'Playfair Display',serif;font-size:0.50rem;font-weight:700;color:#1a0800;text-align:center;text-transform:uppercase;letter-spacing:0.08em;line-height:1.3;">Best<br/>Seller</span>
+            </div>
+
+            <!-- Cover top content -->
+            <div>
+              <p style="font-size:0.55rem;letter-spacing:0.26em;color:#60a5fa;text-transform:uppercase;font-weight:500;margin-bottom:1rem;">Beltrán Briones</p>
+              <h4 class="font-display text-white font-bold leading-snug" style="font-size:1.30rem;">
+                El Método<br/>Briones
+              </h4>
+              <div style="width:28px;height:1px;background:linear-gradient(90deg,#f59e0b,#d97706);margin-top:1rem;"></div>
+            </div>
+
+            <!-- Cover bottom content -->
+            <div>
+              <p style="font-size:0.58rem;color:rgba(255,255,255,0.40);line-height:1.5;letter-spacing:0.05em;">
+                Cómo promocionar<br/>y vender cualquier cosa.
+              </p>
+              <div class="mt-3" style="width:100%;height:3px;background:linear-gradient(90deg,#f59e0b,#d97706 60%,transparent);opacity:0.7;"></div>
+            </div>
+          </div>
+
+          <!-- Shadow under book -->
+          <div class="book-floor"></div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -527,6 +896,123 @@
   <script src="locales/translations.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/chat.js"></script>
+
+
+  <!-- ════════════════════════════════════════════════════
+       CHAT WIDGET
+  ════════════════════════════════════════════════════ -->
+  <div id="chat-widget"
+       class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4"
+       aria-label="Asistente virtual">
+
+    <!-- ── Chat window ────────────────────────────────── -->
+    <div id="chat-window" class="chat-closed">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between px-5 py-4 flex-shrink-0"
+           style="background:linear-gradient(90deg,#070e1a,#0b1525);border-bottom:1px solid rgba(59,130,246,0.12);">
+        <div class="flex items-center gap-3">
+
+          <!-- Avatar -->
+          <div class="flex-shrink-0 flex items-center justify-center"
+               style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1e3a8a);">
+            <i class="fa-solid fa-robot text-white" style="font-size:0.85rem;"></i>
+          </div>
+
+          <div>
+            <p class="font-display text-white font-semibold leading-none"
+               style="font-size:0.90rem;">Asistente Virtual</p>
+            <div class="flex items-center gap-1.5 mt-1">
+              <span style="width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 7px rgba(34,197,94,0.65);flex-shrink:0;"></span>
+              <span style="font-size:0.55rem;color:rgba(255,255,255,0.42);letter-spacing:0.16em;text-transform:uppercase;">En línea</span>
+            </div>
+          </div>
+
+        </div>
+
+        <button id="chat-close"
+                class="flex items-center justify-center text-white/40 hover:text-white/80 transition-colors rounded-full p-1.5 hover:bg-white/5"
+                aria-label="Cerrar chat">
+          <i class="fa-solid fa-xmark" style="font-size:0.95rem;"></i>
+        </button>
+      </div>
+      <!-- /Header -->
+
+      <!-- Messages area -->
+      <div id="chat-messages" class="flex-1 overflow-y-auto px-4 py-5 flex flex-col gap-3">
+
+        <!-- Welcome message (static, not in JS history) -->
+        <div class="chat-msg flex justify-start">
+          <div class="chat-bubble-bot">
+            Hola, soy el asistente de <strong style="color:#93c5fd;">Beltrán Briones</strong>.<br/>
+            ¿En qué puedo ayudarte hoy? Puedo orientarte sobre proyectos, inversiones o el libro.
+          </div>
+        </div>
+
+      </div>
+      <!-- /Messages area -->
+
+      <!-- Input area -->
+      <div class="flex-shrink-0 px-4 py-3"
+           style="border-top:1px solid rgba(255,255,255,0.06);background:#070e1a;">
+        <div id="chat-input-wrapper"
+             class="flex items-center gap-2"
+             style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);border-radius:10px;padding:0.45rem 0.45rem 0.45rem 1rem;transition:border-color 0.3s;">
+
+          <input
+            id="chat-input"
+            type="text"
+            placeholder="Escribí tu consulta..."
+            autocomplete="off"
+            maxlength="1000"
+            class="flex-1 bg-transparent text-white/85 text-sm outline-none placeholder-white/25"
+            style="font-family:'Inter',sans-serif;"
+          />
+
+          <button
+            id="chat-send"
+            class="flex-shrink-0 flex items-center justify-center transition-all duration-200 disabled:opacity-30 hover:brightness-110 active:scale-90"
+            style="width:34px;height:34px;background:linear-gradient(135deg,#2563eb,#1e3a8a);border-radius:8px;"
+            disabled
+            aria-label="Enviar mensaje">
+            <i class="fa-solid fa-paper-plane text-white" style="font-size:0.75rem;"></i>
+          </button>
+
+        </div>
+
+        <p class="text-center mt-2"
+           style="font-size:0.52rem;color:rgba(255,255,255,0.16);letter-spacing:0.14em;text-transform:uppercase;">
+          Impulsado por Google Gemini AI
+        </p>
+      </div>
+      <!-- /Input area -->
+
+    </div>
+    <!-- /Chat window -->
+
+
+    <!-- ── FAB button ─────────────────────────────────── -->
+    <button
+      id="chat-fab"
+      class="relative flex items-center justify-center text-white"
+      style="width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1e3a8a);box-shadow:0 8px 28px rgba(37,99,235,0.55);"
+      aria-label="Abrir chat">
+
+      <!-- Pulsing attention ring (disappears on first open — see chat.js) -->
+      <span class="fab-ring absolute inset-0 rounded-full animate-ping"
+            style="background:rgba(37,99,235,0.32);animation-duration:2.8s;"
+            aria-hidden="true"></span>
+
+      <!-- Icons swap on toggle -->
+      <i class="fab-icon-open  fa-solid fa-comment-dots relative z-10" style="font-size:1.20rem;"></i>
+      <i class="fab-icon-close fa-solid fa-xmark       relative z-10 hidden" style="font-size:1.25rem;"></i>
+
+    </button>
+    <!-- /FAB button -->
+
+  </div>
+  <!-- /CHAT WIDGET -->
 
 </body>
 </html>
