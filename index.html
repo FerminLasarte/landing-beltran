@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beltrán Briones — Real Estate</title>
+
+  <!-- Tailwind CDN (config must be set after load) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#3b82f6',
+              500: '#1d4ed8',
+              600: '#1e3a8a',
+              700: '#1e40af',
+            },
+            ink: {
+              900: '#04090f',
+              800: '#070e1a',
+              700: '#0b1525',
+              600: '#101e33',
+              500: '#172542',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+
+<body class="antialiased">
+
+  <!-- ════════════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════════════ -->
+  <nav id="navbar"
+       class="fixed top-0 left-0 right-0 z-50 py-5 px-6 md:px-12 flex items-center justify-between"
+       style="background: transparent;">
+
+    <!-- Logo -->
+    <a href="#inicio" class="flex flex-col leading-none" data-scroll>
+      <span class="font-display text-white text-xl font-semibold tracking-wide">Beltrán Briones</span>
+      <span class="text-navy-300 uppercase" style="font-size:0.62rem; letter-spacing:0.22em;"
+            data-i18n="nav.tagline">Real Estate</span>
+    </a>
+
+    <!-- Right side: desktop nav + lang toggle + hamburger -->
+    <div class="flex items-center gap-4 md:gap-5">
+
+      <!-- Desktop nav links (hidden on mobile) -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#estadisticas" class="nav-link" data-scroll data-i18n="nav.stats">Estadísticas</a>
+        <a href="#sobre-mi"     class="nav-link" data-scroll data-i18n="nav.about">Sobre Mí</a>
+        <a href="#proceso"      class="nav-link" data-scroll data-i18n="nav.process">El Proceso</a>
+        <a href="#contacto"     class="nav-link" data-scroll data-i18n="nav.contact">Contacto</a>
+      </div>
+
+      <!-- Language toggle (always visible) -->
+      <button id="lang-btn" class="lang-toggle" aria-label="Toggle language">
+        <span id="lang-es" class="lang-opt" style="color:#60a5fa;">ES</span>
+        <span class="lang-sep">|</span>
+        <span id="lang-en" class="lang-opt" style="color:rgba(255,255,255,0.32);">EN</span>
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none p-1" aria-label="Menú">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile dropdown menu -->
+  <div id="mobile-menu"
+       class="fixed top-0 left-0 right-0 z-40 pt-20 pb-10 px-8"
+       style="background: rgba(4,9,15,0.98);">
+    <div class="flex flex-col gap-0 mt-2 divide-y divide-white/5">
+      <a href="#estadisticas" class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.stats">Estadísticas</a>
+      <a href="#sobre-mi"     class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.about">Sobre Mí</a>
+      <a href="#proceso"      class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.process">El Proceso</a>
+      <a href="#contacto"     class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.contact">Contacto</a>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════════ -->
+  <section id="inicio" class="hero-bg min-h-screen flex items-center relative">
+
+    <!-- Grain overlay -->
+    <div class="absolute inset-0 pointer-events-none"
+         style="background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22300%22 height=%22300%22 filter=%22url(%23n)%22 opacity=%220.035%22/%3E%3C/svg%3E');opacity:0.55;"></div>
+
+    <div class="relative w-full max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-24">
+      <div class="max-w-3xl">
+
+        <p class="section-label mb-6 reveal" style="color:#60a5fa;"
+           data-i18n="hero.label">Desarrollador Inmobiliario · Buenos Aires</p>
+
+        <h1 class="font-display text-white text-5xl md:text-7xl lg:text-8xl font-semibold leading-none mb-6 reveal"
+            style="transition-delay:0.1s;">
+          Beltrán<br/>
+          <span style="background:linear-gradient(135deg,#60a5fa,#bfdbfe);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+            Briones
+          </span>
+        </h1>
+
+        <span class="accent-line mb-8 reveal" style="transition-delay:0.2s;"></span>
+
+        <p class="text-white/80 text-base md:text-lg font-light leading-relaxed max-w-xl mt-6 mb-10 reveal"
+           style="transition-delay:0.25s;"
+           data-i18n-html="hero.subtitle">
+          Cofundador del <strong class="text-white/90 font-medium">Grupo Briones</strong>,
+          una de las desarrolladoras inmobiliarias más importantes de la Ciudad de Buenos Aires.
+        </p>
+
+        <div class="flex flex-wrap gap-4 reveal" style="transition-delay:0.35s;">
+          <a href="#proceso"  class="btn-primary"      data-scroll data-i18n="hero.cta_primary">Conocer mis desarrollos</a>
+          <a href="#contacto" class="btn-outline-light" data-scroll data-i18n="hero.cta_secondary">Contactar</a>
+        </div>
+
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+        <span class="text-white uppercase" style="font-size:0.58rem;letter-spacing:0.28em;"
+              data-i18n="hero.scroll">Scroll</span>
+        <div style="width:1px;height:40px;background:linear-gradient(to bottom,#3b82f6,transparent);animation:scrollPulse 2.2s ease infinite;"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════
+       STATISTICS
+  ════════════════════════════════════════════════════ -->
+  <section id="estadisticas" class="bg-ink-900 py-24 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <p class="section-label mb-4" style="color:#3b82f6;"
+           data-i18n="stats.label">Impacto Real</p>
+        <h2 class="font-display text-white text-3xl md:text-4xl font-semibold"
+            data-i18n="stats.title">Números que hablan solos</h2>
+        <div class="accent-line mx-auto mt-5"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div class="stat-card bg-ink-800 p-10 reveal" style="transition-delay:0.05s;">
+          <div class="mb-3">
+            <span class="font-display text-5xl md:text-6xl font-bold text-white counter" data-target="12">0</span>
+          </div>
+          <p class="text-navy-400 text-xs tracking-widest uppercase mb-3" style="letter-spacing:0.2em;"
+             data-i18n="stats.buildings_label">Edificios Entregados</p>
+          <p class="text-white/60 text-sm font-light leading-relaxed"
+             data-i18n="stats.buildings_desc">Proyectos residenciales de alta gama concluidos en Buenos Aires.</p>
+        </div>
+
+        <div class="stat-card bg-ink-800 p-10 reveal" style="transition-delay:0.12s;">
+          <div class="mb-3">
+            <span class="font-display text-5xl md:text-6xl font-bold text-white counter" data-target="898">0</span>
+          </div>
+          <p class="text-navy-400 text-xs tracking-widest uppercase mb-3" style="letter-spacing:0.2em;"
+             data-i18n="stats.apartments_label">Departamentos Entregados</p>
+          <p class="text-white/60 text-sm font-light leading-relaxed"
+             data-i18n="stats.apartments_desc">Hogares entregados a propietarios satisfechos en toda la Ciudad.</p>
+        </div>
+
+        <div class="stat-card bg-ink-800 p-10 reveal" style="transition-delay:0.22s;">
+          <div class="mb-3">
+            <span class="font-display text-5xl md:text-6xl font-bold text-white">+1M</span>
+          </div>
+          <p class="text-navy-400 text-xs tracking-widest uppercase mb-3" style="letter-spacing:0.2em;"
+             data-i18n="stats.followers_label">Seguidores en Redes</p>
+          <p class="text-white/60 text-sm font-light leading-relaxed"
+             data-i18n="stats.followers_desc">Comunidad activa en Instagram, YouTube y todas las plataformas.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════
+       QUIÉN SOY
+  ════════════════════════════════════════════════════ -->
+  <section id="sobre-mi" class="bg-white py-28 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+
+      <!-- Image -->
+      <div class="relative reveal-left">
+        <div class="aspect-[4/5] overflow-hidden bg-slate-100 relative">
+          <img
+            src="puerto-madero.jpg"
+            alt="Puerto Madero — Buenos Aires"
+            class="w-full h-full object-cover"
+            style="object-position: center 20%;"
+          />
+          <div style="position:absolute;bottom:0;left:0;width:80px;height:80px;border-left:3px solid #2563eb;border-bottom:3px solid #2563eb;"></div>
+          <div style="position:absolute;top:0;right:0;width:80px;height:80px;border-right:3px solid #2563eb;border-top:3px solid #2563eb;"></div>
+        </div>
+        <!-- Floating badge -->
+        <div class="absolute -bottom-6 -right-6 bg-ink-900 text-white px-7 py-5 shadow-2xl">
+          <span class="block font-display text-3xl font-bold" style="color:#3b82f6;">+15</span>
+          <span class="block text-white/65 tracking-widest uppercase mt-1"
+                style="font-size:0.62rem;letter-spacing:0.18em;"
+                data-i18n="about.years">Años de trayectoria</span>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="reveal-right">
+        <p class="section-label mb-5" data-i18n="about.label">Quién Soy</p>
+        <h2 class="font-display text-slate-900 text-3xl md:text-4xl font-semibold leading-tight mb-5">
+          <span data-i18n="about.title_1">Referente del Real Estate</span><br/>
+          <span style="background:linear-gradient(135deg,#1e3a8a,#2563eb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"
+                data-i18n="about.title_2">en la región</span>
+        </h2>
+        <span class="accent-line mb-7"></span>
+
+        <p class="text-slate-500 text-base font-light leading-relaxed mb-10"
+           data-i18n="about.bio">
+          Soy Beltrán Briones, desarrollador inmobiliario apasionado por crear espacios de vida excepcionales. Mi trayectoria está marcada por la convicción de que la excelencia en la construcción transforma no solo edificios, sino comunidades enteras.
+        </p>
+
+        <ul class="space-y-5">
+
+          <li class="flex items-start gap-4">
+            <div class="feature-icon mt-0.5"><i class="fa-solid fa-building text-sm"></i></div>
+            <div>
+              <p class="text-slate-800 font-medium text-sm mb-1"
+                 data-i18n="about.feat1_title">Supervisión y Construcción Internacional</p>
+              <p class="text-slate-500 text-sm font-light leading-relaxed"
+                 data-i18n="about.feat1_desc">Proyectos residenciales premium en Buenos Aires y Estados Unidos con los más altos estándares constructivos.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-4">
+            <div class="feature-icon mt-0.5"><i class="fa-solid fa-podcast text-sm"></i></div>
+            <div>
+              <p class="text-slate-800 font-medium text-sm mb-1"
+                 data-i18n="about.feat2_title">Cofundador de "El Club del Ladrillo"</p>
+              <p class="text-slate-500 text-sm font-light leading-relaxed"
+                 data-i18n="about.feat2_desc">El podcast de Real Estate más escuchado de habla hispana, con miles de oyentes en toda la región.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-4">
+            <div class="feature-icon mt-0.5"><i class="fa-solid fa-chalkboard-user text-sm"></i></div>
+            <div>
+              <p class="text-slate-800 font-medium text-sm mb-1"
+                 data-i18n="about.feat3_title">Orador en las Mejores Universidades</p>
+              <p class="text-slate-500 text-sm font-light leading-relaxed"
+                 data-i18n="about.feat3_desc">Conferencista invitado en UBA, UADE, UCA, Universidad de San Andrés y los principales eventos del sector inmobiliario.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-4">
+            <div class="feature-icon mt-0.5"><i class="fa-solid fa-book-open text-sm"></i></div>
+            <div>
+              <p class="text-slate-800 font-medium text-sm mb-1"
+                 data-i18n="about.feat4_title">Autor del Best Seller</p>
+              <p class="text-slate-500 text-sm font-light leading-relaxed"
+                 data-i18n="about.feat4_desc">"El Método Briones" — la guía definitiva para invertir en Real Estate de forma inteligente y rentable.</p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="accent-divider"></div>
+
+
+  <!-- ════════════════════════════════════════════════════
+       NUESTRO PROCESO
+  ════════════════════════════════════════════════════ -->
+  <section id="proceso" class="bg-slate-50 py-28 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-20 reveal">
+        <p class="section-label mb-4" data-i18n="process.label">Metodología</p>
+        <h2 class="font-display text-slate-900 text-3xl md:text-4xl font-semibold mb-4"
+            data-i18n="process.title">Nuestro Proceso</h2>
+        <p class="text-slate-500 text-sm font-light max-w-lg mx-auto leading-relaxed"
+           data-i18n="process.desc">
+          Cada proyecto sigue un ciclo riguroso de 5 etapas que garantiza la excelencia desde la búsqueda del terreno hasta la entrega de llaves.
+        </p>
+        <div class="accent-line mx-auto mt-6"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
+        <div class="step-card bg-white p-8 flex flex-col reveal" style="transition-delay:0.00s;">
+          <span class="step-number mb-4">01</span>
+          <div class="w-10 h-10 flex items-center justify-center mb-5"
+               style="background:linear-gradient(135deg,rgba(37,99,235,0.10),rgba(30,58,138,0.04));">
+            <i class="fa-solid fa-map-location-dot text-lg" style="color:#2563eb;"></i>
+          </div>
+          <h3 class="text-slate-800 font-semibold text-sm mb-3 leading-snug"
+              data-i18n="process.step1_title">Compra de Terrenos</h3>
+          <p class="text-slate-400 text-xs font-light leading-relaxed flex-1"
+             data-i18n="process.step1_desc">Seleccionamos ubicaciones estratégicas de alto potencial de valorización en los mejores barrios.</p>
+        </div>
+
+        <div class="step-card bg-white p-8 flex flex-col reveal" style="transition-delay:0.08s;">
+          <span class="step-number mb-4">02</span>
+          <div class="w-10 h-10 flex items-center justify-center mb-5"
+               style="background:linear-gradient(135deg,rgba(37,99,235,0.10),rgba(30,58,138,0.04));">
+            <i class="fa-solid fa-drafting-compass text-lg" style="color:#2563eb;"></i>
+          </div>
+          <h3 class="text-slate-800 font-semibold text-sm mb-3 leading-snug"
+              data-i18n="process.step2_title">Diseño Arquitectónico</h3>
+          <p class="text-slate-400 text-xs font-light leading-relaxed flex-1"
+             data-i18n="process.step2_desc">Colaboramos con los mejores estudios de arquitectura para crear planos funcionales, estéticos y eficientes.</p>
+        </div>
+
+        <div class="step-card bg-white p-8 flex flex-col reveal" style="transition-delay:0.16s;">
+          <span class="step-number mb-4">03</span>
+          <div class="w-10 h-10 flex items-center justify-center mb-5"
+               style="background:linear-gradient(135deg,rgba(37,99,235,0.10),rgba(30,58,138,0.04));">
+            <i class="fa-solid fa-helmet-safety text-lg" style="color:#2563eb;"></i>
+          </div>
+          <h3 class="text-slate-800 font-semibold text-sm mb-3 leading-snug"
+              data-i18n="process.step3_title">Construcción del Edificio</h3>
+          <p class="text-slate-400 text-xs font-light leading-relaxed flex-1"
+             data-i18n="process.step3_desc">Supervisión rigurosa de obra con materiales premium y controles de calidad en cada etapa del proceso.</p>
+        </div>
+
+        <div class="step-card bg-white p-8 flex flex-col reveal" style="transition-delay:0.24s;">
+          <span class="step-number mb-4">04</span>
+          <div class="w-10 h-10 flex items-center justify-center mb-5"
+               style="background:linear-gradient(135deg,rgba(37,99,235,0.10),rgba(30,58,138,0.04));">
+            <i class="fa-solid fa-handshake text-lg" style="color:#2563eb;"></i>
+          </div>
+          <h3 class="text-slate-800 font-semibold text-sm mb-3 leading-snug"
+              data-i18n="process.step4_title">Venta de Departamentos</h3>
+          <p class="text-slate-400 text-xs font-light leading-relaxed flex-1"
+             data-i18n="process.step4_desc">Asesoramiento personalizado e inversión transparente desde el pozo hasta la unidad terminada.</p>
+        </div>
+
+        <div class="step-card bg-white p-8 flex flex-col reveal" style="transition-delay:0.32s;">
+          <span class="step-number mb-4">05</span>
+          <div class="w-10 h-10 flex items-center justify-center mb-5"
+               style="background:linear-gradient(135deg,rgba(37,99,235,0.10),rgba(30,58,138,0.04));">
+            <i class="fa-solid fa-key text-lg" style="color:#2563eb;"></i>
+          </div>
+          <h3 class="text-slate-800 font-semibold text-sm mb-3 leading-snug"
+              data-i18n="process.step5_title">Entrega al Propietario</h3>
+          <p class="text-slate-400 text-xs font-light leading-relaxed flex-1"
+             data-i18n="process.step5_desc">Recepción del inmueble con garantía post-entrega y acompañamiento integral durante todo el proceso.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════
+       QUOTE
+  ════════════════════════════════════════════════════ -->
+  <section class="bg-ink-900 py-20 px-6 md:px-12 relative overflow-hidden">
+    <div class="absolute top-0 left-0 font-display select-none pointer-events-none"
+         style="font-size:18rem;line-height:1;opacity:0.05;transform:translate(-2rem,-3rem);color:#2563eb;">"</div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10 reveal">
+      <p class="font-display text-white text-2xl md:text-3xl lg:text-4xl font-medium leading-relaxed mb-8 italic"
+         data-i18n="quote.text">
+        "El Real Estate no se trata de ladrillos y cemento. Se trata de construir el futuro de las familias y el patrimonio de las generaciones."
+      </p>
+      <span class="accent-line mx-auto mb-5"></span>
+      <p class="text-navy-400 text-sm tracking-widest uppercase" style="letter-spacing:0.2em;">Beltrán Briones</p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════
+       FOOTER / CONTACT
+  ════════════════════════════════════════════════════ -->
+  <footer id="contacto" class="bg-ink-800 pt-24 pb-12 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 mb-20">
+
+        <!-- Brand -->
+        <div class="reveal-left">
+          <a href="#inicio" class="flex flex-col leading-none mb-6" data-scroll style="display:inline-flex;">
+            <span class="font-display text-white text-2xl font-semibold">Beltrán Briones</span>
+            <span class="text-navy-400 uppercase mt-1"
+                  style="font-size:0.62rem;letter-spacing:0.22em;"
+                  data-i18n="footer.tagline">Real Estate · Grupo Briones</span>
+          </a>
+          <p class="text-white/60 text-sm font-light leading-relaxed mb-8 max-w-xs"
+             data-i18n="footer.brand_desc">
+            Desarrolladora inmobiliaria de referencia en Buenos Aires. Construimos el futuro del Real Estate con visión, excelencia y compromiso.
+          </p>
+          <div class="flex gap-3">
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram text-sm"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube text-sm"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+            <a href="#" class="social-link" aria-label="TikTok"><i class="fa-brands fa-tiktok text-sm"></i></a>
+            <a href="#" class="social-link" aria-label="Spotify"><i class="fa-brands fa-spotify text-sm"></i></a>
+          </div>
+        </div>
+
+        <!-- Contacto directo -->
+        <div class="reveal" style="transition-delay:0.1s;">
+          <h3 class="text-white text-xs tracking-widest uppercase mb-7 font-medium"
+              style="letter-spacing:0.2em;"
+              data-i18n="footer.contact_title">Contacto Directo</h3>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-brands fa-whatsapp text-sm"></i></div>
+            <div>
+              <p class="text-white/50 text-xs tracking-wider uppercase mb-0.5"
+                 style="font-size:0.63rem;"
+                 data-i18n="footer.whatsapp_label">WhatsApp</p>
+              <a href="https://wa.me/5491124682070" target="_blank" rel="noopener" class="text-sm">
+                +54 911 2468 2070
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <h3 class="text-white text-xs tracking-widest uppercase mb-5 font-medium"
+                style="letter-spacing:0.2em;"
+                data-i18n="footer.nav_title">Navegación</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <a href="#estadisticas" class="text-white/55 text-xs py-1 hover:text-navy-300 transition-colors" data-scroll data-i18n="nav.stats">Estadísticas</a>
+              <a href="#sobre-mi"     class="text-white/55 text-xs py-1 hover:text-navy-300 transition-colors" data-scroll data-i18n="nav.about">Sobre Mí</a>
+              <a href="#proceso"      class="text-white/55 text-xs py-1 hover:text-navy-300 transition-colors" data-scroll data-i18n="nav.process">El Proceso</a>
+              <a href="#contacto"     class="text-white/55 text-xs py-1 hover:text-navy-300 transition-colors" data-scroll data-i18n="nav.contact">Contacto</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Emails -->
+        <div class="reveal-right" style="transition-delay:0.15s;">
+          <h3 class="text-white text-xs tracking-widest uppercase mb-7 font-medium"
+              style="letter-spacing:0.2em;"
+              data-i18n="footer.emails_title">Correos Electrónicos</h3>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-seedling text-sm"></i></div>
+            <div>
+              <p class="text-white/50 text-xs mb-0.5" style="font-size:0.63rem;"
+                 data-i18n="footer.email_land">Terrenos</p>
+              <a href="mailto:terrenos@grupobriones.com.ar" class="text-sm">terrenos@grupobriones.com.ar</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-truck text-sm"></i></div>
+            <div>
+              <p class="text-white/50 text-xs mb-0.5" style="font-size:0.63rem;"
+                 data-i18n="footer.email_suppliers">Proveedores</p>
+              <a href="mailto:proveedores@grupobriones.com.ar" class="text-sm">proveedores@grupobriones.com.ar</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-envelope text-sm"></i></div>
+            <div>
+              <p class="text-white/50 text-xs mb-0.5" style="font-size:0.63rem;"
+                 data-i18n="footer.email_contact">Contacto General</p>
+              <a href="mailto:contacto@grupobriones.com.ar" class="text-sm">contacto@grupobriones.com.ar</a>
+            </div>
+          </div>
+
+          <div class="contact-item" style="border-bottom:none;">
+            <div class="contact-icon"><i class="fa-solid fa-star text-sm"></i></div>
+            <div>
+              <p class="text-white/50 text-xs mb-0.5" style="font-size:0.63rem;"
+                 data-i18n="footer.email_quality">Calidad</p>
+              <a href="mailto:calidad@grupobriones.com.ar" class="text-sm">calidad@grupobriones.com.ar</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="accent-divider mb-8"></div>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-white/45 text-xs" style="font-size:0.70rem;"
+           data-i18n="footer.copyright">© 2025 Grupo Briones · Todos los derechos reservados.</p>
+        <p class="text-white/35 text-xs" style="font-size:0.66rem; letter-spacing:0.08em;"
+           data-i18n="footer.location">Desarrolladora Inmobiliaria · Buenos Aires, Argentina</p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════════════════
+       SCRIPTS — load order matters:
+       1. translations.js  (defines TRANSLATIONS global)
+       2. i18n.js          (depends on TRANSLATIONS)
+       3. main.js          (independent interactions)
+  ════════════════════════════════════════════════════ -->
+  <script src="locales/translations.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

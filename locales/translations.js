@@ -1,0 +1,173 @@
+/* ════════════════════════════════════════════════════
+   translations.js — Beltrán Briones Website
+   Locales: es (Español) | en (English)
+
+   To add a new language:
+     1. Duplicate the 'en' block with the new locale code.
+     2. Translate every value.
+     3. Add a <span> for it in the lang-toggle button.
+════════════════════════════════════════════════════ */
+
+const TRANSLATIONS = {
+
+  /* ──────────────────────────────────────────────────
+     ESPAÑOL
+  ────────────────────────────────────────────────── */
+  es: {
+    meta: {
+      title: 'Beltrán Briones — Real Estate',
+    },
+    nav: {
+      tagline: 'Real Estate',
+      stats:   'Estadísticas',
+      about:   'Sobre Mí',
+      process: 'El Proceso',
+      contact: 'Contacto',
+    },
+    hero: {
+      label:         'Desarrollador Inmobiliario · Buenos Aires',
+      subtitle:      'Cofundador del <strong class="text-white/90 font-medium">Grupo Briones</strong>, una de las desarrolladoras inmobiliarias más importantes de la Ciudad de Buenos Aires.',
+      cta_primary:   'Conocer mis desarrollos',
+      cta_secondary: 'Contactar',
+      scroll:        'Scroll',
+    },
+    stats: {
+      label:            'Impacto Real',
+      title:            'Números que hablan solos',
+      buildings_label:  'Edificios Entregados',
+      buildings_desc:   'Proyectos residenciales de alta gama concluidos en Buenos Aires.',
+      apartments_label: 'Departamentos Entregados',
+      apartments_desc:  'Hogares entregados a propietarios satisfechos en toda la Ciudad.',
+      followers_label:  'Seguidores en Redes',
+      followers_desc:   'Comunidad activa en Instagram, YouTube y todas las plataformas.',
+    },
+    about: {
+      label:       'Quién Soy',
+      title_1:     'Referente del Real Estate',
+      title_2:     'en la región',
+      years:       'Años de trayectoria',
+      bio:         'Soy Beltrán Briones, desarrollador inmobiliario apasionado por crear espacios de vida excepcionales. Mi trayectoria está marcada por la convicción de que la excelencia en la construcción transforma no solo edificios, sino comunidades enteras.',
+      feat1_title: 'Supervisión y Construcción Internacional',
+      feat1_desc:  'Proyectos residenciales premium en Buenos Aires y Estados Unidos con los más altos estándares constructivos.',
+      feat2_title: 'Cofundador de "El Club del Ladrillo"',
+      feat2_desc:  'El podcast de Real Estate más escuchado de habla hispana, con miles de oyentes en toda la región.',
+      feat3_title: 'Orador en las Mejores Universidades',
+      feat3_desc:  'Conferencista invitado en UBA, UADE, UCA, Universidad de San Andrés y los principales eventos del sector inmobiliario.',
+      feat4_title: 'Autor del Best Seller',
+      feat4_desc:  '"El Método Briones" — la guía definitiva para invertir en Real Estate de forma inteligente y rentable.',
+    },
+    process: {
+      label:       'Metodología',
+      title:       'Nuestro Proceso',
+      desc:        'Cada proyecto sigue un ciclo riguroso de 5 etapas que garantiza la excelencia desde la búsqueda del terreno hasta la entrega de llaves.',
+      step1_title: 'Compra de Terrenos',
+      step1_desc:  'Seleccionamos ubicaciones estratégicas de alto potencial de valorización en los mejores barrios.',
+      step2_title: 'Diseño Arquitectónico',
+      step2_desc:  'Colaboramos con los mejores estudios de arquitectura para crear planos funcionales, estéticos y eficientes.',
+      step3_title: 'Construcción del Edificio',
+      step3_desc:  'Supervisión rigurosa de obra con materiales premium y controles de calidad en cada etapa del proceso.',
+      step4_title: 'Venta de Departamentos',
+      step4_desc:  'Asesoramiento personalizado e inversión transparente desde el pozo hasta la unidad terminada.',
+      step5_title: 'Entrega al Propietario',
+      step5_desc:  'Recepción del inmueble con garantía post-entrega y acompañamiento integral durante todo el proceso.',
+    },
+    quote: {
+      text: '"El Real Estate no se trata de ladrillos y cemento. Se trata de construir el futuro de las familias y el patrimonio de las generaciones."',
+    },
+    footer: {
+      tagline:         'Real Estate · Grupo Briones',
+      brand_desc:      'Desarrolladora inmobiliaria de referencia en Buenos Aires. Construimos el futuro del Real Estate con visión, excelencia y compromiso.',
+      contact_title:   'Contacto Directo',
+      whatsapp_label:  'WhatsApp',
+      nav_title:       'Navegación',
+      emails_title:    'Correos Electrónicos',
+      email_land:      'Terrenos',
+      email_suppliers: 'Proveedores',
+      email_contact:   'Contacto General',
+      email_quality:   'Calidad',
+      copyright:       '© 2025 Grupo Briones · Todos los derechos reservados.',
+      location:        'Desarrolladora Inmobiliaria · Buenos Aires, Argentina',
+    },
+  },
+
+  /* ──────────────────────────────────────────────────
+     ENGLISH
+  ────────────────────────────────────────────────── */
+  en: {
+    meta: {
+      title: 'Beltrán Briones — Real Estate',
+    },
+    nav: {
+      tagline: 'Real Estate',
+      stats:   'Statistics',
+      about:   'About Me',
+      process: 'The Process',
+      contact: 'Contact',
+    },
+    hero: {
+      label:         'Real Estate Developer · Buenos Aires',
+      subtitle:      'Co-founder of <strong class="text-white/90 font-medium">Grupo Briones</strong>, one of the most important real estate developers in Buenos Aires City.',
+      cta_primary:   'Discover my projects',
+      cta_secondary: 'Contact',
+      scroll:        'Scroll',
+    },
+    stats: {
+      label:            'Real Impact',
+      title:            'Numbers that speak for themselves',
+      buildings_label:  'Buildings Delivered',
+      buildings_desc:   'High-end residential projects completed in Buenos Aires.',
+      apartments_label: 'Apartments Delivered',
+      apartments_desc:  'Homes delivered to satisfied owners across the City.',
+      followers_label:  'Social Media Followers',
+      followers_desc:   'Active community on Instagram, YouTube and all platforms.',
+    },
+    about: {
+      label:       'About Me',
+      title_1:     'A Real Estate Reference',
+      title_2:     'across the region',
+      years:       'Years of experience',
+      bio:         'I am Beltrán Briones, a real estate developer passionate about creating exceptional living spaces. My career is defined by the conviction that excellence in construction transforms not just buildings, but entire communities.',
+      feat1_title: 'International Construction Supervision',
+      feat1_desc:  'Premium residential projects in Buenos Aires and the United States with the highest construction standards.',
+      feat2_title: 'Co-founder of "El Club del Ladrillo"',
+      feat2_desc:  'The most listened-to Spanish-language Real Estate podcast, with thousands of listeners across the region.',
+      feat3_title: 'Speaker at Top Universities',
+      feat3_desc:  'Guest speaker at UBA, UADE, UCA, Universidad de San Andrés and the leading real estate industry events.',
+      feat4_title: 'Best-Selling Author',
+      feat4_desc:  '"El Método Briones" — the definitive guide to investing in Real Estate intelligently and profitably.',
+    },
+    process: {
+      label:       'Methodology',
+      title:       'Our Process',
+      desc:        'Every project follows a rigorous 5-stage cycle that guarantees excellence from land search to key handover.',
+      step1_title: 'Land Acquisition',
+      step1_desc:  'We select strategic locations with high appreciation potential in the best neighborhoods.',
+      step2_title: 'Architectural Design',
+      step2_desc:  'We collaborate with leading architectural firms to create functional, aesthetic, and efficient floor plans.',
+      step3_title: 'Building Construction',
+      step3_desc:  'Rigorous construction supervision with premium materials and quality controls at every stage of the process.',
+      step4_title: 'Apartment Sales',
+      step4_desc:  'Personalized advisory and transparent investment from pre-sale stage to completed unit.',
+      step5_title: 'Final Handover',
+      step5_desc:  'Property handover with post-delivery warranty and comprehensive support throughout the entire process.',
+    },
+    quote: {
+      text: '"Real Estate is not about bricks and cement. It is about building the future of families and the wealth of generations."',
+    },
+    footer: {
+      tagline:         'Real Estate · Grupo Briones',
+      brand_desc:      'A benchmark real estate developer in Buenos Aires. We build the future of Real Estate with vision, excellence, and commitment.',
+      contact_title:   'Direct Contact',
+      whatsapp_label:  'WhatsApp',
+      nav_title:       'Navigation',
+      emails_title:    'Email Addresses',
+      email_land:      'Land',
+      email_suppliers: 'Suppliers',
+      email_contact:   'General Contact',
+      email_quality:   'Quality',
+      copyright:       '© 2025 Grupo Briones · All rights reserved.',
+      location:        'Real Estate Developer · Buenos Aires, Argentina',
+    },
+  },
+
+};
