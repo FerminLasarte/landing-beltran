@@ -99,7 +99,7 @@ body {
       rgba(4,9,20,0.60) 0%,
       rgba(4,9,20,0.78) 55%,
       rgba(4,9,20,0.97) 100%),
-    url('../assets/background.jpeg');
+    url('../assets/fondo-palermo.jpg');
   background-size: cover;
   background-position: center 30%;
   /*
@@ -108,9 +108,6 @@ body {
    * defecto y fixed solo en dispositivos con cursor real (desktop).
    */
   background-attachment: scroll;
-}
-@media (min-width: 1024px) and (hover: hover) {
-  .hero-bg { background-attachment: fixed; }
 }
 
 /* ─── Buttons ──────────────────────────────────────── */
@@ -139,6 +136,9 @@ body {
   padding: 0.88rem 2.2rem;
   border: 1px solid rgba(255,255,255,0.38);
   color: rgba(255,255,255,0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.06);
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
