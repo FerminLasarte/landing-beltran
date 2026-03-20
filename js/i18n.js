@@ -49,7 +49,20 @@
       el.innerHTML = t(el.getAttribute('data-i18n-html'));
     });
 
+    /* Placeholder text — data-i18n-placeholder="key" */
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+      el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
+    });
+
+    /* aria-label — data-i18n-aria="key" */
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria')));
+    });
+
     updateToggle();
+
+    /* Notify other scripts that the language changed */
+    window.dispatchEvent(new CustomEvent('langchange', { detail: { lang: currentLang } }));
   }
 
   /* ── Toggle between es / en ─────────────────────────── */
@@ -58,6 +71,9 @@
     localStorage.setItem('bb_lang', currentLang);
     applyTranslations();
   }
+
+  /* ── Expose translation function globally ───────────── */
+  window.bb_t = t;
 
   /* ── Init on DOM ready ──────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {

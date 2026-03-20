@@ -74,8 +74,8 @@
         <a href="#estadisticas" class="nav-link" data-scroll data-i18n="nav.stats">Estadísticas</a>
         <a href="#sobre-mi"     class="nav-link" data-scroll data-i18n="nav.about">Sobre Mí</a>
         <a href="#proceso"      class="nav-link" data-scroll data-i18n="nav.process">El Proceso</a>
-        <a href="#proyectos"    class="nav-link" data-scroll>Proyectos</a>
-        <a href="#libro"        class="nav-link" data-scroll>Mi Libro</a>
+        <a href="#proyectos"    class="nav-link" data-scroll data-i18n="nav.projects">Proyectos</a>
+        <a href="#libro"        class="nav-link" data-scroll data-i18n="nav.book">Mi Libro</a>
         <a href="#contacto"     class="nav-link" data-scroll data-i18n="nav.contact">Contacto</a>
       </div>
 
@@ -87,7 +87,7 @@
       </button>
 
       <!-- Mobile hamburger -->
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none p-1" aria-label="Menú">
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none p-1" aria-label="Menú" data-i18n-aria="nav.menu_aria">
         <i class="fa-solid fa-bars text-xl"></i>
       </button>
 
@@ -102,8 +102,8 @@
       <a href="#estadisticas" class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.stats">Estadísticas</a>
       <a href="#sobre-mi"     class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.about">Sobre Mí</a>
       <a href="#proceso"      class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.process">El Proceso</a>
-      <a href="#proyectos"    class="nav-link block py-4" data-scroll data-mobile>Proyectos</a>
-      <a href="#libro"        class="nav-link block py-4" data-scroll data-mobile>Mi Libro</a>
+      <a href="#proyectos"    class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.projects">Proyectos</a>
+      <a href="#libro"        class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.book">Mi Libro</a>
       <a href="#contacto"     class="nav-link block py-4" data-scroll data-mobile data-i18n="nav.contact">Contacto</a>
     </div>
   </div>
@@ -393,8 +393,8 @@
     <div class="max-w-7xl mx-auto">
 
       <div class="text-center mb-16 reveal">
-        <p class="section-label mb-4" style="color:#3b82f6;">Portafolio</p>
-        <h2 class="font-display text-white text-3xl md:text-4xl font-semibold">
+        <p class="section-label mb-4" style="color:#3b82f6;" data-i18n="projects.label">Portafolio</p>
+        <h2 class="font-display text-white text-3xl md:text-4xl font-semibold" data-i18n="projects.title">
           Desarrollos que definen el futuro
         </h2>
         <div class="accent-line mx-auto mt-5"></div>
@@ -403,7 +403,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
         <!-- Card 1: Brigos Palermo -->
-        <a href="https://www.grupobriones.com.ar/proyectos/cordoba" class="project-card reveal" style="transition-delay:0.05s;" aria-label="Ver proyecto Brigos Palermo">
+        <a href="https://www.grupobriones.com.ar/proyectos/cordoba" class="project-card reveal" style="transition-delay:0.05s;" aria-label="Ver proyecto Brigos Palermo" data-i18n-aria="projects.aria_palermo">
           <div class="relative overflow-hidden" style="aspect-ratio:3/4;">
             <img
               src="assets/brigos-palermo.jpeg"
@@ -418,7 +418,7 @@
                     style="background:rgba(37,99,235,0.18);border:1px solid rgba(59,130,246,0.38);backdrop-filter:blur(10px);">
                 <span class="animate-pulse inline-block rounded-full"
                       style="width:6px;height:6px;background:#60a5fa;flex-shrink:0;"></span>
-                <span style="font-size:0.58rem;letter-spacing:0.22em;color:#93c5fd;font-weight:600;text-transform:uppercase;">En Construcción</span>
+                <span style="font-size:0.58rem;letter-spacing:0.22em;color:#93c5fd;font-weight:600;text-transform:uppercase;" data-i18n="projects.badge">En Construcción</span>
               </span>
             </div>
             <!-- Info + CTA -->
@@ -430,7 +430,7 @@
               <div class="flex items-center gap-4 mt-4">
                 <div class="card-line" style="height:1px;background:linear-gradient(90deg,#3b82f6,#1e3a8a);"></div>
                 <div class="project-card-cta">
-                  Ver proyecto <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.50rem;"></i>
+                  <span data-i18n="projects.cta">Ver proyecto</span> <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.50rem;"></i>
                 </div>
               </div>
             </div>
@@ -438,7 +438,7 @@
         </a>
 
         <!-- Card 2: Brigos Recoleta -->
-        <a href="https://www.grupobriones.com.ar/proyectos/brigos-recoleta" class="project-card reveal" style="transition-delay:0.13s;" aria-label="Ver proyecto Brigos Recoleta">
+        <a href="https://www.grupobriones.com.ar/proyectos/brigos-recoleta" class="project-card reveal" style="transition-delay:0.13s;" aria-label="Ver proyecto Brigos Recoleta" data-i18n-aria="projects.aria_recoleta">
           <div class="relative overflow-hidden" style="aspect-ratio:3/4;">
             <img
               src="assets/brigos-recoleta.jpeg"
@@ -452,7 +452,7 @@
                     style="background:rgba(37,99,235,0.18);border:1px solid rgba(59,130,246,0.38);backdrop-filter:blur(10px);">
                 <span class="animate-pulse inline-block rounded-full"
                       style="width:6px;height:6px;background:#60a5fa;flex-shrink:0;animation-delay:0.3s;"></span>
-                <span style="font-size:0.58rem;letter-spacing:0.22em;color:#93c5fd;font-weight:600;text-transform:uppercase;">En Construcción</span>
+                <span style="font-size:0.58rem;letter-spacing:0.22em;color:#93c5fd;font-weight:600;text-transform:uppercase;" data-i18n="projects.badge">En Construcción</span>
               </span>
             </div>
             <div class="absolute bottom-0 left-0 right-0 p-7">
@@ -463,7 +463,7 @@
               <div class="flex items-center gap-4 mt-4">
                 <div class="card-line" style="height:1px;background:linear-gradient(90deg,#3b82f6,#1e3a8a);"></div>
                 <div class="project-card-cta">
-                  Ver proyecto <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.50rem;"></i>
+                  <span data-i18n="projects.cta">Ver proyecto</span> <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.50rem;"></i>
                 </div>
               </div>
             </div>
@@ -471,7 +471,7 @@
         </a>
 
         <!-- Card 3: Casa Huidobro -->
-        <a href="https://www.grupobriones.com.ar/proyectos/casa-huidobro" class="project-card reveal" style="transition-delay:0.22s;" aria-label="Ver proyecto Casa Huidobro">
+        <a href="https://www.grupobriones.com.ar/proyectos/casa-huidobro" class="project-card reveal" style="transition-delay:0.22s;" aria-label="Ver proyecto Casa Huidobro" data-i18n-aria="projects.aria_huidobro">
           <div class="relative overflow-hidden" style="aspect-ratio:3/4;">
             <img
               src="assets/casa-huidoro.jpeg"
@@ -485,7 +485,7 @@
                     style="background:rgba(37,99,235,0.18);border:1px solid rgba(59,130,246,0.38);backdrop-filter:blur(10px);">
                 <span class="animate-pulse inline-block rounded-full"
                       style="width:6px;height:6px;background:#60a5fa;flex-shrink:0;animation-delay:0.6s;"></span>
-                <span style="font-size:0.58rem;letter-spacing:0.22em;color:#93c5fd;font-weight:600;text-transform:uppercase;">En Construcción</span>
+                <span style="font-size:0.58rem;letter-spacing:0.22em;color:#93c5fd;font-weight:600;text-transform:uppercase;" data-i18n="projects.badge">En Construcción</span>
               </span>
             </div>
             <div class="absolute bottom-0 left-0 right-0 p-7">
@@ -496,7 +496,7 @@
               <div class="flex items-center gap-4 mt-4">
                 <div class="card-line" style="height:1px;background:linear-gradient(90deg,#3b82f6,#1e3a8a);"></div>
                 <div class="project-card-cta">
-                  Ver proyecto <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.50rem;"></i>
+                  <span data-i18n="projects.cta">Ver proyecto</span> <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.50rem;"></i>
                 </div>
               </div>
             </div>
@@ -764,14 +764,14 @@
         </h2>
 
         <p class="text-navy-300 text-sm font-light tracking-wide mb-5"
-           style="letter-spacing:0.08em;">
+           style="letter-spacing:0.08em;" data-i18n="book.subtitle">
           Cómo promocionar y vender cualquier cosa.
         </p>
 
         <span class="accent-line mb-8"
               style="background:linear-gradient(90deg,#f59e0b,#d97706);"></span>
 
-        <p class="text-white/75 text-base font-light leading-relaxed max-w-md mt-6 mb-10">
+        <p class="text-white/75 text-base font-light leading-relaxed max-w-md mt-6 mb-10" data-i18n="book.desc">
           El modelo definitivo para dueños de empresas y emprendedores que buscan crecer y convertir su posicionamiento en resultados concretos.
         </p>
 
@@ -779,17 +779,17 @@
         <div class="flex gap-8 mb-10">
           <div>
             <span class="font-display text-3xl font-bold text-white">#1</span>
-            <p class="text-white/60 text-xs uppercase tracking-widest mt-0.5" style="font-size:0.60rem;">Ventas</p>
+            <p class="text-white/60 text-xs uppercase tracking-widest mt-0.5" style="font-size:0.60rem;" data-i18n="book.sales">Ventas</p>
           </div>
           <div style="width:1px;background:rgba(255,255,255,0.15);"></div>
           <div>
             <span class="font-display text-3xl font-bold text-white">+5K</span>
-            <p class="text-white/60 text-xs uppercase tracking-widest mt-0.5" style="font-size:0.60rem;">Lectores</p>
+            <p class="text-white/60 text-xs uppercase tracking-widest mt-0.5" style="font-size:0.60rem;" data-i18n="book.readers">Lectores</p>
           </div>
           <div style="width:1px;background:rgba(255,255,255,0.15);"></div>
           <div>
             <span class="font-display text-3xl font-bold text-white">4.9</span>
-            <p class="text-white/60 text-xs uppercase tracking-widest mt-0.5" style="font-size:0.60rem;">Calificación</p>
+            <p class="text-white/60 text-xs uppercase tracking-widest mt-0.5" style="font-size:0.60rem;" data-i18n="book.rating">Calificación</p>
           </div>
         </div>
 
@@ -799,7 +799,7 @@
           <img src="assets/mercado-libre.png" alt="Mercado Libre"
                aria-hidden="true"
                style="width:22px;height:22px;object-fit:contain;flex-shrink:0;border-radius:3px;" />
-          Disponible en Mercado Libre
+          <span data-i18n="book.cta">Disponible en Mercado Libre</span>
         </a>
 
       </div>
@@ -952,7 +952,7 @@
   ════════════════════════════════════════════════════ -->
   <div id="chat-widget"
        class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4"
-       aria-label="Asistente virtual">
+       aria-label="Asistente virtual" data-i18n-aria="chat.widget_aria">
 
     <!-- ── Chat window ────────────────────────────────── -->
     <div id="chat-window" class="chat-closed">
@@ -970,10 +970,10 @@
 
           <div>
             <p class="font-display text-white font-semibold leading-none"
-               style="font-size:0.90rem;">Asistente Virtual</p>
+               style="font-size:0.90rem;" data-i18n="chat.title">Asistente Virtual</p>
             <div class="flex items-center gap-1.5 mt-1">
               <span style="width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 7px rgba(34,197,94,0.65);flex-shrink:0;"></span>
-              <span style="font-size:0.55rem;color:rgba(255,255,255,0.42);letter-spacing:0.16em;text-transform:uppercase;">En línea</span>
+              <span style="font-size:0.55rem;color:rgba(255,255,255,0.42);letter-spacing:0.16em;text-transform:uppercase;" data-i18n="chat.online">En línea</span>
             </div>
           </div>
 
@@ -981,7 +981,7 @@
 
         <button id="chat-close"
                 class="flex items-center justify-center text-white/40 hover:text-white/80 transition-colors rounded-full p-1.5 hover:bg-white/5"
-                aria-label="Cerrar chat">
+                aria-label="Cerrar chat" data-i18n-aria="chat.close_aria">
           <i class="fa-solid fa-xmark" style="font-size:0.95rem;"></i>
         </button>
       </div>
@@ -992,7 +992,7 @@
 
         <!-- Welcome message (static, not in JS history) -->
         <div class="chat-msg flex justify-start">
-          <div class="chat-bubble-bot">
+          <div class="chat-bubble-bot" data-i18n-html="chat.greeting">
             Hola, soy el asistente de <strong style="color:#93c5fd;">Beltrán Briones</strong>.<br/>
             ¿En qué puedo ayudarte hoy? Puedo orientarte sobre proyectos, inversiones o el libro.
           </div>
@@ -1011,7 +1011,7 @@
           <input
             id="chat-input"
             type="text"
-            placeholder="Escribí tu consulta..."
+            placeholder="Escribí tu consulta..." data-i18n-placeholder="chat.placeholder"
             autocomplete="off"
             maxlength="1000"
             class="flex-1 bg-transparent text-white/85 text-sm outline-none placeholder-white/25"
@@ -1023,7 +1023,7 @@
             class="flex-shrink-0 flex items-center justify-center transition-all duration-200 disabled:opacity-30 hover:brightness-110 active:scale-90"
             style="width:34px;height:34px;background:linear-gradient(135deg,#2563eb,#1e3a8a);border-radius:8px;"
             disabled
-            aria-label="Enviar mensaje">
+            aria-label="Enviar mensaje" data-i18n-aria="chat.send_aria">
             <i class="fa-solid fa-paper-plane text-white" style="font-size:0.75rem;"></i>
           </button>
 
@@ -1031,7 +1031,7 @@
 
         <p class="text-center mt-2"
            style="font-size:0.52rem;color:rgba(255,255,255,0.16);letter-spacing:0.14em;text-transform:uppercase;">
-          Impulsado por Google Gemini AI
+          <span data-i18n="chat.powered">Impulsado por Google Gemini AI</span>
         </p>
       </div>
       <!-- /Input area -->
@@ -1045,7 +1045,7 @@
       id="chat-fab"
       class="relative flex items-center justify-center text-white"
       style="width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1e3a8a);box-shadow:0 8px 28px rgba(37,99,235,0.55);"
-      aria-label="Abrir chat">
+      aria-label="Abrir chat" data-i18n-aria="chat.open_aria">
 
       <!-- Pulsing attention ring (disappears on first open — see chat.js) -->
       <span class="fab-ring absolute inset-0 rounded-full animate-ping"

@@ -21,7 +21,7 @@ function openChat() {
   isOpen = true;
   chatWindow.classList.remove('chat-closed');
   chatWindow.classList.add('chat-open');
-  fabBtn.setAttribute('aria-label', 'Cerrar chat');
+  fabBtn.setAttribute('aria-label', window.bb_t('chat.close_aria'));
   fabBtn.querySelector('.fab-icon-open').classList.add('hidden');
   fabBtn.querySelector('.fab-icon-close').classList.remove('hidden');
   // Stop pulsing ring once user interacts
@@ -33,7 +33,7 @@ function closeChat() {
   isOpen = false;
   chatWindow.classList.remove('chat-open');
   chatWindow.classList.add('chat-closed');
-  fabBtn.setAttribute('aria-label', 'Abrir chat');
+  fabBtn.setAttribute('aria-label', window.bb_t('chat.open_aria'));
   fabBtn.querySelector('.fab-icon-open').classList.remove('hidden');
   fabBtn.querySelector('.fab-icon-close').classList.add('hidden');
 }
@@ -162,8 +162,8 @@ async function sendMessage() {
 
     const isNetworkError = err instanceof TypeError;
     const fallback = isNetworkError
-      ? 'No pude conectarme con el servidor. Verificá que el backend esté corriendo, o contactanos directamente por WhatsApp: **+54 911 2468 2070**'
-      : `Hubo un inconveniente técnico. Por favor contactanos por WhatsApp: **+54 911 2468 2070**`;
+      ? window.bb_t('chat.error_network')
+      : window.bb_t('chat.error_generic');
 
     appendMessage('model', fallback);
     // Remove the optimistic user entry from history since we couldn't process it
@@ -177,19 +177,24 @@ async function sendMessage() {
 
 // ── Quick-reply chips ─────────────────────────────────────────────────────────
 
-const QUICK_REPLIES = [
-  '¿Qué proyectos tienen en venta?',
-  '¿Cómo puedo invertir?',
-  'Quiero el libro',
-  'Contacto comercial',
-];
+function getQuickReplies() {
+  return [
+    window.bb_t('chat.quick1'),
+    window.bb_t('chat.quick2'),
+    window.bb_t('chat.quick3'),
+    window.bb_t('chat.quick4'),
+  ];
+}
 
 function renderQuickReplies() {
+  // Remove existing chips if any (e.g. on language change)
+  document.getElementById('chat-quick-replies')?.remove();
+
   const container = document.createElement('div');
   container.id = 'chat-quick-replies';
   container.className = 'flex flex-wrap gap-2 px-4 pb-3';
 
-  QUICK_REPLIES.forEach((label) => {
+  getQuickReplies().forEach((label) => {
     const chip = document.createElement('button');
     chip.className = 'chat-chip';
     chip.textContent = label;
@@ -259,4 +264,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render quick reply chips
   renderQuickReplies();
+
+  // Re-render chips when language changes (only if chat was not yet used)
+  window.addEventListener('langchange', () => {
+    if (document.getElementById('chat-quick-replies')) {
+      renderQuickReplies();
+    }
+  });
 });
