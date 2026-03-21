@@ -105,7 +105,7 @@ if not GEMINI_API_KEY:
 
 gemini_client = genai.Client(api_key=GEMINI_API_KEY)
 
-GEMINI_MODEL = "gemini-1.5-flash"
+GEMINI_MODEL = "gemini-2.5-flash"
 
 SYSTEM_INSTRUCTION = """
 Eres el asistente virtual premium de Beltrán Briones, un reconocido desarrollador
